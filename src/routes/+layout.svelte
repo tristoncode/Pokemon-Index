@@ -1,7 +1,7 @@
 <script lang="ts">
   import "../app.css";
-  import pkStore from "$lib/stores/pkStore.svelte";
   import { onMount } from "svelte";
+  import pkStore from "$lib/stores/pkStore.svelte";
 
   let { children, data } = $props();
 

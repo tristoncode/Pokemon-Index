@@ -21,8 +21,6 @@ class pkStore {
     handle_getAToZPokemonResults: (letterToSearchBy: string) => null as any,
     letterToSearchBy: "" as string,
   });
-
-  arr = [];
 }
 
 export default new pkStore();

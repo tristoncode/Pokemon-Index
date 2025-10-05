@@ -1,5 +1,4 @@
 <script lang="ts">
-  import pkStore from "$lib/stores/pkStore.svelte";
   import _ from "lodash";
 
   const { pokemon } = $props();

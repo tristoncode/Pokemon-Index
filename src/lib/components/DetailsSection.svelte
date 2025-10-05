@@ -1,6 +1,6 @@
 <script lang="ts">
-  import pkStore from "$lib/stores/pkStore.svelte";
   import PokemonStats from "./PokemonStats.svelte";
+  import pkStore from "$lib/stores/pkStore.svelte";
 </script>
 
 <section class="min-w-[350px] bg-stone-50 rounded-[2px] flex-1 flex gap-1" style="padding: 2rem .25rem;">
