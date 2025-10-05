@@ -1,10 +1,15 @@
 <script lang="ts">
   import LoadedPokemonCont from "./LoadedPokemonCont.svelte";
   import pkStore from "$lib/stores/pkStore.svelte";
+  import { onMount } from "svelte";
 
   let inputBox: HTMLInputElement;
   let pokemonListObjs: object[] | undefined = $state();
   let is_searched: true | false = $state(false);
+
+  onMount(() => {
+    inputBox.focus();
+  });
 
   async function oninput() {
     is_searched = true;
@@ -52,7 +57,7 @@
         </ul>
       </div>
     {:else}
-      <h3 class="font-bold text-xl" style="color: #fafaf9; margin: auto;">Search results will show up here.</h3>
+      <h3 class="font-bold text-xl" style="color: #fafaf9; margin: 2rem auto;">Search results will show up here.</h3>
     {/if}
   </LoadedPokemonCont>
 </div>
