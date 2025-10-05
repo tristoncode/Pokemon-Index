@@ -82,10 +82,6 @@
 </div>
 
 <style lang="scss">
-  .selectedLetter {
-    background: oklch(79.5% 0.184 86.047) !important;
-    color: whitesmoke;
-  }
   .selectedPokemon {
     background: linear-gradient(45deg, hsl(280, 100%, 35%), hsl(280, 100%, 75%), hsl(280, 100%, 35%)) !important;
     border: solid 2px oklch(70.7% 0.165 254.624);
