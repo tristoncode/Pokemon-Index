@@ -24,6 +24,6 @@ input {
   cursor: initial;
 }
 
-.selected {
+.selectedGalleryButton {
   background-color: oklch(79.5% 0.184 86.047) !important;
 }

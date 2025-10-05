@@ -7,8 +7,8 @@
   $effect(() => {
     const galleryButtons = document.querySelectorAll("[data-gallerySectionNavButton]");
     galleryButtons.forEach((btn) => {
-      if (btn.ariaLabel === pkStore.gallerySection) btn.classList.add("selected");
-      else btn.classList.remove("selected");
+      if (btn.ariaLabel === pkStore.gallerySection) btn.classList.add("selectedGalleryButton");
+      else btn.classList.remove("selectedGalleryButton");
     });
   });
 </script>
