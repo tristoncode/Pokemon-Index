@@ -23,3 +23,7 @@ button i {
 input {
   cursor: initial;
 }
+
+.selected {
+  background-color: oklch(79.5% 0.184 86.047) !important;
+}
