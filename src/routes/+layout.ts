@@ -2,7 +2,7 @@ import pkStore from "$lib/stores/pkStore.svelte.js";
 
 export async function load({ fetch }) {
   async function handle_getMainPokemonList() {
-    const response = await fetch(pkStore.nextList || "https://pokeapi.co/api/v2/pokemon/");
+    const response = await fetch(pkStore.nextList || "https://pokeapi.co/api/v2/pokemon/?offset0&limit=30");
     const responseData = await response.json();
     return responseData;
   }

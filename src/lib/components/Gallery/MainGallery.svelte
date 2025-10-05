@@ -37,7 +37,7 @@
 <LoadedPokemonCont>
   <section class="overflow-x-hidden overflow-auto" {onscroll}>
     {#snippet List(pokemonList: any)}
-      <ul class="grid grid-cols-2 row-auto gap-1" style="margin-bottom: 4px;">
+      <ul class="grid grid-cols-3 row-auto gap-1" style="margin-bottom: 4px;">
         {#each pokemonList as pokemon ((pokemon as any)?.id)}
           <!-- svelte-ignore a11y_click_events_have_key_events -->
           <li class="w-auto aspect-square bg-stone-50 rounded-[2px] flex" style="justify-content: center; align-items: center;">
