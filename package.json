@@ -32,6 +32,7 @@
     ]
   },
   "dependencies": {
+    "@sveltejs/adapter-cloudflare": "^7.2.4",
     "lodash": "^4.17.21",
     "sass": "^1.93.2"
   }
