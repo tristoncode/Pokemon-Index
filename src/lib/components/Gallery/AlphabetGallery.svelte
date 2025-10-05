@@ -1,11 +1,12 @@
 <script lang="ts">
   import LoadedPokemonCont from "./LoadedPokemonCont.svelte";
   import pkStore from "$lib/stores/pkStore.svelte";
-  import { onMount } from "svelte";
 
   let pokemonListObjs: object[] = $state([]);
 
-  async function handle_getAToZPokemonResults(event: object) {
+  async function handle_getAToZPokemonResults(event: object = {}) {
+    let selectedYellow = "oklch(79.5% 0.184 86.047)";
+
     let { letterToSearchBy, handle_getAToZPokemonResults } = pkStore.group_alphabeticalSearch;
     letterToSearchBy = (event as any)?.currentTarget.textContent || "a";
     pokemonListObjs = await handle_getAToZPokemonResults(letterToSearchBy);
@@ -13,13 +14,15 @@
     const searchLetters = document.querySelectorAll(".searchLetters");
     searchLetters.forEach((letter) => {
       if (letter.textContent === letterToSearchBy) {
-        letter.classList.add("selectedPokemon");
-      } else letter.classList.remove("selectedPokemon");
+        (letter as any).style.backgroundColor = selectedYellow;
+      } else (letter as any).style.backgroundColor = "transparent";
     });
   }
 
   $effect(() => {
     setTimeout(async () => {
+      let selectedYellow = "oklch(79.5% 0.184 86.047)";
+
       let { letterToSearchBy, handle_getAToZPokemonResults } = pkStore.group_alphabeticalSearch;
       letterToSearchBy = "a";
       pokemonListObjs = await handle_getAToZPokemonResults(letterToSearchBy);
@@ -27,8 +30,8 @@
       const searchLetters = document.querySelectorAll(".searchLetters");
       searchLetters.forEach((letter) => {
         if (letter.textContent === letterToSearchBy) {
-          letter.classList.add("selectedPokemon");
-        } else letter.classList.remove("selectedPokemon");
+          (letter as any).style.backgroundColor = selectedYellow;
+        } else (letter as any).style.backgroundColor = "transparent";
       });
     }, 1);
   });
@@ -79,8 +82,12 @@
 </div>
 
 <style lang="scss">
-  .selectedPokemon {
+  .selectedLetter {
     background: oklch(79.5% 0.184 86.047) !important;
     color: whitesmoke;
+  }
+  .selectedPokemon {
+    background: linear-gradient(45deg, hsl(280, 100%, 35%), hsl(280, 100%, 75%), hsl(280, 100%, 35%)) !important;
+    border: solid 2px oklch(70.7% 0.165 254.624);
   }
 </style>
