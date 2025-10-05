@@ -41,7 +41,7 @@
       transform: translateY(0);
     }
     50% {
-      transform: translateY(-70px);
+      transform: translateY(-50px);
     }
     100% {
       transform: translateY(0);
