@@ -5,10 +5,16 @@
   import pkStore from "$lib/stores/pkStore.svelte";
 
   $effect(() => {
+    let yellow = "oklch(79.5% 0.184 86.047)";
+    let defaultColor = "black";
+
     const btns = document.querySelectorAll(".gallerySectionNavButton");
     btns.forEach((btn) => {
-      if (btn.ariaLabel === pkStore.gallerySection) (btn as any).style.backgroundColor = "oklch(79.5% 0.184 86.047)";
-      else (btn as any).style.backgroundColor = "black";
+      if (btn.ariaLabel === pkStore.gallerySection) {
+        (btn as any).style.backgroundColor = yellow;
+      } else {
+        (btn as any).style.backgroundColor = defaultColor;
+      }
     });
   });
 </script>
@@ -53,27 +59,23 @@
     min-height: 25px;
     max-height: 32px;
     margin: 8px auto;
-    border-radius: 2px;
-    overflow: hidden;
     display: flex;
+    gap: 4px;
 
     & > button {
-      min-width: 50px;
+      min-width: 45px;
       background-color: black;
       color: #fafaf9;
       padding: 4px;
+      border-radius: 2px;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: all 0.1s ease;
 
-      &:nth-child(2) {
-        border-right: solid 3px oklch(70.7% 0.165 254.624);
-        border-left: solid 3px oklch(70.7% 0.165 254.624);
-      }
-
       &:hover {
-        background-color: #79716b;
+        transform: scale(1.1);
+        background-color: grey !important;
       }
 
       i {

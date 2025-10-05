@@ -82,6 +82,12 @@
 </div>
 
 <style lang="scss">
+  li {
+    &:hover {
+      background: linear-gradient(45deg, hsl(0, 0%, 35%), hsl(0, 0%, 75%), hsl(0, 0%, 35%));
+    }
+  }
+
   .selectedPokemon {
     background: linear-gradient(45deg, hsl(280, 100%, 35%), hsl(280, 100%, 75%), hsl(280, 100%, 35%)) !important;
     border: solid 2px oklch(70.7% 0.165 254.624);
