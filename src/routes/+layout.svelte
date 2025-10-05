@@ -1,0 +1,21 @@
+<script lang="ts">
+  import "../app.css";
+  import pkStore from "$lib/stores/pkStore.svelte";
+  import { onMount } from "svelte";
+
+  let { children, data } = $props();
+
+  onMount(async () => {
+    pkStore.group_mainGallery.handle_getPokemonList = await data.handle_getMainPokemonList;
+    pkStore.group_mainGallery.handle_loadPokemonList = await data.handle_loadMainPokemonList;
+    pkStore.group_searchbarGallery.handle_getFilteredPokemonResults = await data.handle_getFilteredPokemonResults;
+  });
+</script>
+
+<svelte:head>
+  <link href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css" rel="stylesheet" />
+</svelte:head>
+
+<main class="bg-stone-700 w-[100vw] h-[100vh] flex gap-1 overflow-hidden *:font-semibold" style="padding: 4px;">
+  {@render children()}
+</main>
