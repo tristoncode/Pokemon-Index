@@ -8,7 +8,8 @@
   onMount(async () => {
     pkStore.group_mainGallery.handle_getPokemonList = await data.handle_getMainPokemonList;
     pkStore.group_mainGallery.handle_loadPokemonList = await data.handle_loadMainPokemonList;
-    pkStore.group_searchbarGallery.handle_getFilteredPokemonResults = await data.handle_getFilteredPokemonResults;
+    pkStore.group_searchbarGallery.handle_getSearchedPokemonResults = await data.handle_getSearchedPokemonResults;
+    pkStore.group_alphabeticalSearch.handle_getAToZPokemonResults = await data.handle_getAToZPokemonResults;
   });
 </script>
 

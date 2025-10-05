@@ -50,12 +50,33 @@
       </div>
     {:else if stat === "moves"}
       <div>
-        <h3>Four {stat} (random)</h3>
-        <ul>
-          {#each moves as move}
-            <li>{(move as any)?.name.replaceAll("-", " ")}</li>
-          {/each}
-        </ul>
+        {#if moves.length === 0}
+          <h3>Moves</h3>
+          <ul>
+            <li>No Moves</li>
+          </ul>
+        {:else if moves.length === 1}
+          <h3>Move</h3>
+          <ul>
+            {#each moves as move}
+              <li>{(move as any)?.name.replaceAll("-", " ")}</li>
+            {/each}
+          </ul>
+        {:else if moves.length < 4}
+          <h3>{moves.length} {stat}</h3>
+          <ul>
+            {#each moves as move}
+              <li>{(move as any)?.name.replaceAll("-", " ")}</li>
+            {/each}
+          </ul>
+        {:else}
+          <h3>Four {stat} (random)</h3>
+          <ul>
+            {#each moves as move}
+              <li>{(move as any)?.name.replaceAll("-", " ")}</li>
+            {/each}
+          </ul>
+        {/if}
       </div>
     {:else if stat === "height"}
       <div>
@@ -68,7 +89,7 @@
       <div>
         <h3>{stat}</h3>
         <ul>
-          <li>{(pokemon.weight / 10).toFixed(2)} kiligrams</li>
+          <li>{(pokemon.weight / 10).toFixed(2)} kilograms</li>
           <li>{((pokemon.weight / 10) * 2.20462).toFixed(2)} pounds</li>
         </ul>
       </div>

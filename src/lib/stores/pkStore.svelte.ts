@@ -14,7 +14,12 @@ class pkStore {
   //////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////
   group_searchbarGallery = $state({
-    handle_getFilteredPokemonResults: (search: string) => null as any,
+    handle_getSearchedPokemonResults: (search: string) => null as any,
+  });
+
+  group_alphabeticalSearch = $state({
+    handle_getAToZPokemonResults: (letterToSearchBy: string) => null as any,
+    letterToSearchBy: "" as string,
   });
 
   arr = [];
