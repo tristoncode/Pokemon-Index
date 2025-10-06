@@ -1,5 +1,5 @@
 <script lang="ts">
-  import LoadedPokemonCont from "./LoadedPokemonCont.svelte";
+  import PokemonCont from "./resued/PokemonCont.svelte";
   import { onMount } from "svelte";
   import pkStore from "$lib/stores/pkStore.svelte";
 
@@ -34,7 +34,7 @@
   }
 </script>
 
-<LoadedPokemonCont>
+<PokemonCont>
   <section class="overflow-x-hidden overflow-auto" {onscroll}>
     {#snippet List(pokemonList: any)}
       <ul class="grid grid-cols-3 row-auto gap-1" style="margin-bottom: 4px;">
@@ -63,7 +63,7 @@
       {@render List(pokemonList)}
     {/each}
   </section>
-</LoadedPokemonCont>
+</PokemonCont>
 
 <style lang="scss">
   .profile-img {
