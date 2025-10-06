@@ -59,7 +59,7 @@
               alt="pikemon image's"
               class="h-[100%] aspect-square"
             />
-            <p class="capitalize flex" style="color: #fafaf9; display: flex; align-items: center;">
+            <p class="capitalize flex" style="color: #fafaf9; align-items: center; text-align: left;">
               {(obj as any).name.replaceAll("-", " ")}
             </p>
           </li>
