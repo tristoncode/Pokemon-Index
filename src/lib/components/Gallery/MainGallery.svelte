@@ -10,7 +10,9 @@
       ...pkStore.group_mainGallery.all_pokemon,
       await pkStore.group_mainGallery.handle_getPokemonList(),
     ];
+
     pkStore.nextList = (pkStore.group_mainGallery.all_pokemon.at(-1) as any)?.next;
+
     pkStore.group_mainGallery.all_loadedPokemonLists = [
       ...pkStore.group_mainGallery.all_loadedPokemonLists,
       await pkStore.group_mainGallery.handle_loadPokemonList(),
