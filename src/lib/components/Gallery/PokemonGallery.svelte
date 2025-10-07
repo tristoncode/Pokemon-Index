@@ -14,7 +14,7 @@
 </script>
 
 <section
-  class="w-[300px] h-[100%] bg-stone-50 p-1 text-center rounded-[2px] grid grid-cols-1 grid-rows-[auto_auto_1fr] overflow-hidden"
+  class="w-[310px] h-[100%] bg-stone-50 p-1 text-center rounded-[2px] grid grid-cols-1 grid-rows-[auto_auto_1fr] overflow-hidden"
 >
   <h2 class="p-1 text-3xl font-bold">Gallery</h2>
 

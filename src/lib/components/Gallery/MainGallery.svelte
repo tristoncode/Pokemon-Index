@@ -37,7 +37,7 @@
 <PokemonCont>
   <section class="overflow-x-hidden overflow-auto" {onscroll}>
     {#snippet List(pokemonList: any)}
-      <ul class="mb-1 grid grid-cols-3 row-auto gap-1">
+      <ul class="mb-1 mr-1 grid grid-cols-3 row-auto gap-1">
         {#each pokemonList as pokemon ((pokemon as any)?.id)}
           <!-- svelte-ignore a11y_click_events_have_key_events -->
           <li class="w-auto aspect-square bg-stone-50 rounded-[2px] flex justify-center items-center">
