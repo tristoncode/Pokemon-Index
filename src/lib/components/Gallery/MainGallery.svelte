@@ -37,10 +37,10 @@
 <PokemonCont>
   <section class="overflow-x-hidden overflow-auto" {onscroll}>
     {#snippet List(pokemonList: any)}
-      <ul class="grid grid-cols-3 row-auto gap-1" style="margin-bottom: 4px;">
+      <ul class="mb-1 grid grid-cols-3 row-auto gap-1">
         {#each pokemonList as pokemon ((pokemon as any)?.id)}
           <!-- svelte-ignore a11y_click_events_have_key_events -->
-          <li class="w-auto aspect-square bg-stone-50 rounded-[2px] flex" style="justify-content: center; align-items: center;">
+          <li class="w-auto aspect-square bg-stone-50 rounded-[2px] flex justify-center items-center">
             <!-- svelte-ignore a11y_click_events_have_key_events -->
             <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
             <!-- svelte-ignore a11y_img_redundant_alt -->

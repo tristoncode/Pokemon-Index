@@ -4,14 +4,11 @@
   import ExclamationMark from "$lib/assets/exclamation_mark.svg";
 </script>
 
-<section class="min-w-[350px] bg-stone-50 rounded-[2px] flex-1 flex gap-1" style="padding: 2rem .25rem;">
+<section class="min-w-[350px] bg-stone-50 px-1 py-8 rounded-[2px] flex-1 flex gap-1">
   {#if Object.keys(pkStore.selectedPokemon).length === 0}
-    <p class="capitalize font-extrabold text-4xl self-center" style="margin: auto;">Select Pokemon from Gallery 👉</p>
+    <p class="capitalize m-auto font-extrabold text-4xl self-center">Select Pokemon from Gallery 👉</p>
   {:else}
-    <section
-      class="w-[100%] border-r-8 border-red-300 flex-1 flex flex-col justify-center items-center gap-10"
-      style="box-sizing: content-box; padding: 8px;"
-    >
+    <section class="w-[100%] p-2 border-r-8 border-red-300 flex-1 flex flex-col justify-center items-center gap-10">
       <div id="bg-sphere" class="w-[320px] aspect-square rounded-[50%]">
         <!-- svelte-ignore a11y_img_redundant_alt -->
         <img

@@ -1,6 +1,5 @@
 <script lang="ts">
   import _ from "lodash";
-  import { onMount } from "svelte";
 
   const { pokemon } = $props();
 
@@ -28,7 +27,7 @@
   };
 </script>
 
-<section class="min-w-[350px] w-[100%] flex-[0.9] flex flex-col gap-2" style="padding: 8px 0;">
+<section class="min-w-[350px] w-[100%] py-2 flex-[0.9] flex flex-col gap-2">
   {#snippet Stats(stat: string)}
     {#if stat === "types"}
       <div>

@@ -43,11 +43,10 @@
     <PokemonSearchListComponent {pokemonListObjs} />
   </PokemonCont>
 
-  <section class="bg-blue-200 rounded-[2px] flex flex-col justify-around" style="padding: 0 2px;">
+  <section class="bg-blue-200 px-0.5 rounded-[2px] flex flex-col justify-around">
     {#each "abcdefghijklmnopqrstuvwxyz".split("") as letter, index (index)}
       <button
-        class="searchLetters capitalize hover:bg-blue-400 rounded-[2px] cursor-default text-[0.99em]"
-        style="padding: 0 2px;"
+        class="searchLetters capitalize hover:bg-blue-400 px-0.5 rounded-[2px] cursor-default text-[0.99em]"
         onclick={(event) => handle_getAToZPokemonResults(event)}
       >
         {letter}

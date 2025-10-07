@@ -19,14 +19,13 @@
 </script>
 
 <div class="h-[100%] flex flex-col gap-[2px]">
-  <label class="bg-black rounded-[2px]" for="pokemon-search-input">
-    <p class="text-left" style="padding:0px 4px; color: white;">Search for Pokemon</p>
+  <label for="pokemon-search-input">
+    <p class="w-fit bg-black p-1 rounded-[4px_4px_0px_0px] text-left text-white">Search for Pokemon</p>
     <input
       type="text"
       id="pokemon-search-input"
       placeholder="Example: Pikachu"
-      class="w-[100%] bg-blue-100 border-2 border-black rounded-[0px_2px_2px_2px] font-semibold"
-      style="padding: 0 4px 4px 4px;"
+      class="w-[100%] bg-blue-100 p-[0px_4px_4px_4px] border-[3px] border-black rounded-[0px_3px_3px_3px] font-semibold"
       bind:this={inputBox}
       {oninput}
     />
@@ -36,7 +35,7 @@
     {#if is_searched}
       <PokemonSearchListComponent {pokemonListObjs} />
     {:else}
-      <h3 class="font-bold text-xl" style="color: #fafaf9; margin: 2rem auto;">Search results will show up here.</h3>
+      <h3 class="text-stone-50 my-2 mx-auto font-bold text-xl">Search results will show up here.</h3>
     {/if}
   </PokemonCont>
 </div>
