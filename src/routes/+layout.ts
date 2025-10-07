@@ -7,11 +7,11 @@ export async function load({ fetch }) {
     return responseData;
   }
   async function handle_loadMainPokemonList() {
-    let results = (pkStore.group_mainGallery.all_pokemon.at(-1) as any)?.results;
+    let latestPokemonListResults = (pkStore.group_mainGallery.all_pokemon.at(-1) as any)?.results;
     return Promise.all(
-      results.map(async (result: object) => {
+      latestPokemonListResults.map(async (result: object) => {
         const response = await fetch((result as any)?.url);
-        const responseData = response.json();
+        const responseData = await response.json();
         return responseData;
       })
     );
