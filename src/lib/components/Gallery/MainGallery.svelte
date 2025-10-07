@@ -48,6 +48,7 @@
               src={(pokemon as any)?.sprites.other["official-artwork"].front_default}
               alt="Pokemon's image"
               class="profile-img"
+              loading="lazy"
               class:selectedPokemon={(pkStore.selectedPokemon as any).name === pokemon.name}
               onclick={() => {
                 pkStore.selectedPokemon = pokemon;

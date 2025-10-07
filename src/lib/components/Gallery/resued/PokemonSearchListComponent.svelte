@@ -1,5 +1,5 @@
 <script lang="ts">
-  import ExclamationMark from "$lib/static/exclamation_mark.svg";
+  import ExclamationMark from "$lib/assets/exclamation_mark.svg";
   import pkStore from "$lib/stores/pkStore.svelte";
 
   const { pokemonListObjs } = $props();
@@ -20,6 +20,7 @@
         <img
           src={(obj as any).sprites.other["official-artwork"].front_default || ExclamationMark}
           alt="pikemon image's"
+          loading="lazy"
           class="h-[100%] aspect-square"
         />
         <p class="capitalize flex" style="color: #fafaf9; align-items: center; text-align: left;">
