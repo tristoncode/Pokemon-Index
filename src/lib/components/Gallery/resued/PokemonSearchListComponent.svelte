@@ -11,7 +11,7 @@
     {#each pokemonListObjs as object[] as obj ((obj as any).name)}
       <!-- svelte-ignore a11y_click_events_have_key_events -->
       <li
-        class="min-h-[48px] flex gap-2 bg-blue-900 border-2 border-blue-800 rounded-[2px]"
+        class="min-h-[48px] flex gap-2 bg-blue-900 border-[1px] border-blue-700"
         style="padding: 0px 4px;"
         class:selectedPokemon={(pkStore.selectedPokemon as any).name === (obj as any).name}
         onclick={() => (pkStore.selectedPokemon = obj)}
