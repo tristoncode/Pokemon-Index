@@ -6,8 +6,6 @@
   let pokemonListObjs: object[] = $state([]);
 
   async function handle_getAToZPokemonResults(event: object = {}) {
-    let selectedYellow = "oklch(79.5% 0.184 86.047)";
-
     let { letterToSearchBy, handle_getAToZPokemonResults } = pkStore.group_alphabeticalSearch;
     letterToSearchBy = (event as any)?.currentTarget.textContent || "a";
     pokemonListObjs = await handle_getAToZPokemonResults(letterToSearchBy);
@@ -15,15 +13,13 @@
     const searchLetters = document.querySelectorAll(".searchLetters");
     searchLetters.forEach((letter) => {
       if (letter.textContent === letterToSearchBy) {
-        (letter as any).style.backgroundColor = selectedYellow;
-      } else (letter as any).style.backgroundColor = "transparent";
+        (letter as HTMLButtonElement).classList.add("sortedAlphabetLetter");
+      } else (letter as any).classList.remove("sortedAlphabetLetter");
     });
   }
 
   $effect(() => {
     setTimeout(async () => {
-      let selectedYellow = "oklch(79.5% 0.184 86.047)";
-
       let { letterToSearchBy, handle_getAToZPokemonResults } = pkStore.group_alphabeticalSearch;
       letterToSearchBy = "a";
       pokemonListObjs = await handle_getAToZPokemonResults(letterToSearchBy);
@@ -31,8 +27,8 @@
       const searchLetters = document.querySelectorAll(".searchLetters");
       searchLetters.forEach((letter) => {
         if (letter.textContent === letterToSearchBy) {
-          (letter as any).style.backgroundColor = selectedYellow;
-        } else (letter as any).style.backgroundColor = "transparent";
+          (letter as HTMLButtonElement).classList.add("sortedAlphabetLetter");
+        } else (letter as any).classList.remove("sortedAlphabetLetter");
       });
     }, 1);
   });

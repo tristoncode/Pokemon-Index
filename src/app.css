@@ -19,7 +19,8 @@
     @apply cursor-[initial];
   }
 
-  .selectedGalleryButton {
+  .selectedGalleryButton,
+  .sortedAlphabetLetter {
     @apply !bg-yellow-500;
   }
 }
