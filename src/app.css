@@ -20,7 +20,7 @@
   }
 
   .selectedGalleryButton,
-  .sortedAlphabetLetter {
+  .sortingAlphabetLetter {
     @apply !bg-yellow-500;
   }
 }

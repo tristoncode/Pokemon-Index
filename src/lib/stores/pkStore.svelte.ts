@@ -19,7 +19,7 @@ class pkStore {
 
   group_alphabeticalSearch = $state({
     handle_getAToZPokemonResults: (letterToSearchBy: string) => null as any,
-    letterToSearchBy: "" as string,
+    letterToSearchBy: "a" as string,
   });
 }
 

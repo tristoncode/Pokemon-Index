@@ -4,33 +4,23 @@
   import PokemonSearchListComponent from "./resued/PokemonSearchListComponent.svelte";
 
   let pokemonListObjs: object[] = $state([]);
+  let sortingAlphabetLetter: string = $state("a");
 
-  async function handle_getAToZPokemonResults(event: object = {}) {
+  async function handle_getAToZPokemon() {
     let { letterToSearchBy, handle_getAToZPokemonResults } = pkStore.group_alphabeticalSearch;
-    letterToSearchBy = (event as any)?.currentTarget.textContent || "a";
+    letterToSearchBy = sortingAlphabetLetter || "a";
     pokemonListObjs = await handle_getAToZPokemonResults(letterToSearchBy);
 
     const searchLetters = document.querySelectorAll(".searchLetters");
     searchLetters.forEach((letter) => {
       if (letter.textContent === letterToSearchBy) {
-        (letter as HTMLButtonElement).classList.add("sortedAlphabetLetter");
-      } else (letter as any).classList.remove("sortedAlphabetLetter");
+        (letter as HTMLButtonElement).classList.add("sortingAlphabetLetter");
+      } else (letter as HTMLButtonElement).classList.remove("sortingAlphabetLetter");
     });
   }
 
   $effect(() => {
-    setTimeout(async () => {
-      let { letterToSearchBy, handle_getAToZPokemonResults } = pkStore.group_alphabeticalSearch;
-      letterToSearchBy = "a";
-      pokemonListObjs = await handle_getAToZPokemonResults(letterToSearchBy);
-
-      const searchLetters = document.querySelectorAll(".searchLetters");
-      searchLetters.forEach((letter) => {
-        if (letter.textContent === letterToSearchBy) {
-          (letter as HTMLButtonElement).classList.add("sortedAlphabetLetter");
-        } else (letter as any).classList.remove("sortedAlphabetLetter");
-      });
-    }, 1);
+    setTimeout(async () => handle_getAToZPokemon(), 1);
   });
 </script>
 
@@ -43,7 +33,10 @@
     {#each "abcdefghijklmnopqrstuvwxyz".split("") as letter, index (index)}
       <button
         class="searchLetters capitalize hover:bg-blue-400 px-0.5 rounded-[2px] cursor-default text-[0.99em]"
-        onclick={(event) => handle_getAToZPokemonResults(event)}
+        onclick={(event) => {
+          sortingAlphabetLetter = event.currentTarget.textContent;
+          handle_getAToZPokemon();
+        }}
       >
         {letter}
       </button>
