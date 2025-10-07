@@ -1,6 +1,7 @@
 <script lang="ts">
   import PokemonStats from "./PokemonStats.svelte";
   import pkStore from "$lib/stores/pkStore.svelte";
+  import ExclamationMark from "$lib/static/exclamation_mark.svg";
 </script>
 
 <section class="min-w-[350px] bg-stone-50 rounded-[2px] flex-1 flex gap-1" style="padding: 2rem .25rem;">
@@ -14,7 +15,7 @@
       <div id="bg-sphere" class="w-[320px] aspect-square rounded-[50%]">
         <!-- svelte-ignore a11y_img_redundant_alt -->
         <img
-          src={(pkStore.selectedPokemon as any)?.sprites.other["official-artwork"].front_default}
+          src={(pkStore.selectedPokemon as any)?.sprites.other["official-artwork"].front_default || ExclamationMark}
           alt="Pokemon's image"
           class="w-[100%] aspect-square scale-[1.1]"
         />

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ExclamationMark from "$lib/static/exclamation_mark.svg";
   import pkStore from "$lib/stores/pkStore.svelte";
 
   const { pokemonListObjs } = $props();
@@ -9,18 +10,15 @@
     <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
     {#each pokemonListObjs as object[] as obj ((obj as any).name)}
       <!-- svelte-ignore a11y_click_events_have_key_events -->
-      <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
       <li
-        class="h-[48px] flex gap-2 bg-blue-900 border-2 border-blue-800 rounded-[2px]"
+        class="min-h-[48px] flex gap-2 bg-blue-900 border-2 border-blue-800 rounded-[2px]"
         style="padding: 0px 4px;"
         class:selectedPokemon={(pkStore.selectedPokemon as any).name === (obj as any).name}
-        onclick={() => {
-          pkStore.selectedPokemon = obj;
-        }}
+        onclick={() => (pkStore.selectedPokemon = obj)}
       >
         <!-- svelte-ignore a11y_img_redundant_alt -->
         <img
-          src={(obj as any).sprites.other["official-artwork"].front_default}
+          src={(obj as any).sprites.other["official-artwork"].front_default || ExclamationMark}
           alt="pikemon image's"
           class="h-[100%] aspect-square"
         />
