@@ -8,6 +8,9 @@
   * {
     @apply text-stone-950 font-[system-ui] cursor-default;
   }
+  * img::selection {
+    @apply bg-transparent;
+  }
 
   button {
     @apply cursor-default;
@@ -15,6 +18,7 @@
   button i {
     @apply cursor-pointer;
   }
+
   input {
     @apply cursor-[initial];
   }
