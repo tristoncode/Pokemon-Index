@@ -1,5 +1,6 @@
 <script lang="ts">
   import _ from "lodash";
+  import { onMount } from "svelte";
 
   const { pokemon } = $props();
 
