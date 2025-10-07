@@ -1,30 +1,10 @@
 <script lang="ts">
   import _ from "lodash";
+  import pokemon_types from "$lib/JSON/pokemon_type_colors.json";
 
   const { pokemon } = $props();
 
   const moves = $derived(_.shuffle(pokemon.moves.map((move: object) => (move as any)?.move)).slice(0, 4));
-
-  const pokemonTypes: any = {
-    normal: "#A8A878",
-    fire: "#F08030",
-    water: "#6890F0",
-    electric: "#F8D030",
-    grass: "#78C850",
-    ice: "#98D8D8",
-    fighting: "#C03028",
-    poison: "#A040A0",
-    ground: "#E0C068",
-    flying: "#A890F0",
-    psychic: "#F85888",
-    bug: "#A8B820",
-    rock: "#B8A038",
-    ghost: "#705898",
-    dragon: "#7038F8",
-    dark: "#705848",
-    steel: "#B8B8D0",
-    fairy: "#EE99AC",
-  };
 </script>
 
 <section class="min-w-[350px] w-[100%] py-2 flex-[0.9] flex flex-col gap-2">
@@ -34,7 +14,7 @@
         <h3>{stat}</h3>
         <ul>
           {#each pokemon.types as { type } (type.name)}
-            <li style="background-color: {pokemonTypes[type.name]};">{type.name}</li>
+            <li style="background-color: {(pokemon_types as any)[type.name]};">{type.name}</li>
           {/each}
         </ul>
       </div>
