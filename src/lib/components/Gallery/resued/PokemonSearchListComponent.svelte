@@ -6,7 +6,7 @@
 </script>
 
 <div class="h-[100%] overflow-auto">
-  <ul class="h-0 flex flex-col">
+  <ul class="h-0 flex flex-col mr-1">
     <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
     {#each pokemonListObjs as object[] as obj ((obj as any).name)}
       <!-- svelte-ignore a11y_click_events_have_key_events -->
