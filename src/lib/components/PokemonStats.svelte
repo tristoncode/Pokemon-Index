@@ -1,10 +1,30 @@
 <script lang="ts">
   import _ from "lodash";
-  import pokemon_types from "$lib/JSON/pokemon_type_colors.json";
+  import pokemon_type_colors from "$lib/JSON/pokemon_type_colors.json";
+  import pokemon_type_weakness from "$lib/JSON/pokemon_type_weakness.json";
 
   const { pokemon } = $props();
 
   const moves = $derived(_.shuffle(pokemon.moves.map((move: object) => (move as any)?.move)).slice(0, 4));
+
+  let selectedPokemonTypes = $derived.by(() => {
+    if (pokemon.types.length < 2) {
+      return Object.keys(pokemon_type_weakness).find((key) => key === `${pokemon.types[0].type.name}`);
+    } else {
+      let result: string | any = "";
+
+      result = Object.keys(pokemon_type_weakness).find(
+        (key) => key === `${pokemon.types[0].type.name}/${pokemon.types[1].type.name}`
+      );
+      if (result === undefined) {
+        result = Object.keys(pokemon_type_weakness).find(
+          (key) => key === `${pokemon.types[1].type.name}/${pokemon.types[0].type.name}`
+        );
+      }
+
+      return result;
+    }
+  });
 </script>
 
 <section class="min-w-[350px] w-[100%] py-2 flex-[0.9] flex flex-col gap-2">
@@ -14,7 +34,7 @@
         <h3>{stat}</h3>
         <ul>
           {#each pokemon.types as { type } (type.name)}
-            <li style="background-color: {(pokemon_types as any)[type.name]};">{type.name}</li>
+            <li style="background-color: {(pokemon_type_colors as any)[type.name]};">{type.name}</li>
           {/each}
         </ul>
       </div>
@@ -79,6 +99,15 @@
           <li>{pokemon.base_experience}</li>
         </ul>
       </div>
+    {:else if stat === "weak_against"}
+      <div class="!bg-yellow-500">
+        <h3>{stat.replace("_", " ")}</h3>
+        <ul>
+          {#each (pokemon_type_weakness as any)[selectedPokemonTypes] as type (type)}
+            <li style="background-color:{(pokemon_type_colors as any)[type]}">{type}</li>
+          {/each}
+        </ul>
+      </div>
     {/if}
   {/snippet}
 
@@ -88,6 +117,7 @@
   {@render Stats("weight")}
   {@render Stats("height")}
   {@render Stats("base_experience")}
+  {@render Stats("weak_against")}
 </section>
 
 <style lang="scss">
