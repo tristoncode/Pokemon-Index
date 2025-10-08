@@ -2,6 +2,7 @@
   import _ from "lodash";
   import pokemon_type_colors from "$lib/JSON/pokemon_type_colors.json";
   import pokemon_type_weakness from "$lib/JSON/pokemon_type_weakness.json";
+  import effective_damage_to from "$lib/JSON/effective_damage_to.json";
 
   const { pokemon } = $props();
 
@@ -94,18 +95,31 @@
       </div>
     {:else if stat === "base_experience"}
       <div>
-        <h3>{stat.replace("_", " ")}</h3>
+        <h3>{stat.replaceAll("_", " ")}</h3>
         <ul>
           <li>{pokemon.base_experience}</li>
         </ul>
       </div>
     {:else if stat === "weak_against"}
-      <div class="!bg-yellow-500">
-        <h3>{stat.replace("_", " ")}</h3>
+      <div class="!bg-yellow-700">
+        <h3>{stat.replaceAll("_", " ")}</h3>
         <ul>
           {#each (pokemon_type_weakness as any)[selectedPokemonTypes] as type (type)}
             <li style="background-color:{(pokemon_type_colors as any)[type]}">{type}</li>
           {/each}
+        </ul>
+      </div>
+    {:else if stat === "effective_damage_to"}
+      <div class="!bg-green-700">
+        <h3>{stat.replaceAll("_", " ")}</h3>
+        <ul>
+          {#if (effective_damage_to as any)[selectedPokemonTypes].length === 0}
+            <li>No Pokemon specified</li>
+          {:else}
+            {#each (effective_damage_to as any)[selectedPokemonTypes] as type (type)}
+              <li style="background-color:{(pokemon_type_colors as any)[type]}">{type}</li>
+            {/each}
+          {/if}
         </ul>
       </div>
     {/if}
@@ -117,6 +131,7 @@
   {@render Stats("weight")}
   {@render Stats("height")}
   {@render Stats("base_experience")}
+  {@render Stats("effective_damage_to")}
   {@render Stats("weak_against")}
 </section>
 
