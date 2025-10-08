@@ -17,6 +17,6 @@
   <link href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css" rel="stylesheet" />
 </svelte:head>
 
-<main class="bg-stone-700 w-[100vw] h-[100vh] flex gap-1 overflow-hidden *:font-semibold" style="padding: 4px;">
+<main class="bg-stone-950 w-[100vw] h-[100vh] flex gap-1 overflow-hidden *:font-semibold" style="padding: 4px;">
   {@render children()}
 </main>

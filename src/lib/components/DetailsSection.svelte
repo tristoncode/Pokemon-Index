@@ -4,9 +4,9 @@
   import ExclamationMark from "$lib/assets/exclamation_mark.svg";
 </script>
 
-<section class="min-w-[350px] bg-stone-50 px-1 py-8 rounded-[2px] flex-1 flex gap-1">
+<section id="details-section" class="min-w-[350px] px-1 py-8 rounded-[2px] flex-1 flex gap-1">
   {#if Object.keys(pkStore.selectedPokemon).length === 0}
-    <p class="capitalize m-auto font-extrabold text-4xl self-center">Select Pokemon from Gallery 👉</p>
+    <p class="capitalize m-auto font-extrabold text-4xl self-center text-stone-50">Select Pokemon from Gallery 👉</p>
   {:else}
     <section class="w-[100%] p-2 border-r-8 border-red-300 flex-1 flex flex-col justify-center items-center gap-10">
       <div id="bg-sphere" class="w-[320px] aspect-square rounded-[50%]">
@@ -18,7 +18,9 @@
           loading="lazy"
         />
       </div>
-      <p class="font-extrabold text-4xl text-center capitalize">{(pkStore.selectedPokemon as any)?.name.replaceAll("-", " ")}</p>
+      <p class="custom_text-shadow font-extrabold text-4xl text-center text-yellow-200 capitalize">
+        {(pkStore.selectedPokemon as any)?.name.replaceAll("-", " ")}
+      </p>
     </section>
 
     <PokemonStats pokemon={pkStore.selectedPokemon} />
@@ -26,6 +28,13 @@
 </section>
 
 <style>
+  #details-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75)), url("../assets/main_background_image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
   #bg-sphere {
     background: linear-gradient(45deg, hsl(280, 100%, 35%), hsl(280, 100%, 75%), hsl(280, 100%, 35%));
   }

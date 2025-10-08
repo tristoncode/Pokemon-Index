@@ -14,11 +14,11 @@
 </script>
 
 <section
-  class="w-[310px] h-[100%] bg-stone-50 p-1 text-center rounded-[2px] grid grid-cols-1 grid-rows-[auto_auto_1fr] overflow-hidden"
+  class="w-[310px] h-[100%] bg-red-950 p-1 text-center rounded-[2px] grid grid-cols-1 grid-rows-[auto_auto_1fr] overflow-hidden"
 >
-  <h2 class="p-1 text-3xl font-bold">Gallery</h2>
+  <h2 class="custom_text-shadow p-1 text-3xl font-bold text-stone-50">Gallery</h2>
 
-  <nav>
+  <nav class="bg-black p-1 rounded-[2px]">
     <button aria-label="mainGallery" data-gallerySectionNavButton onclick={() => (pkStore.gallerySection = "mainGallery")}>
       <i class="bxr bx-images"></i>
     </button>
@@ -56,7 +56,7 @@
     & > button {
       width: 53px;
       padding: 4px;
-      background-color: black;
+      background-color: #333;
       color: whitesmoke;
       border-radius: 2px;
       display: flex;

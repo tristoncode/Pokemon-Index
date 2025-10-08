@@ -23,6 +23,10 @@
     @apply cursor-[initial];
   }
 
+  .custom_text-shadow {
+    text-shadow: 0 0 2px black;
+  }
+
   .selectedGalleryButton,
   .sortingAlphabetLetter {
     @apply !bg-yellow-500;
