@@ -6,7 +6,9 @@
 
 <section id="details-section" class="min-w-[350px] px-1 py-8 rounded-[2px] flex-1 flex gap-1">
   {#if Object.keys(pkStore.selectedPokemon).length === 0}
-    <p class="capitalize m-auto font-extrabold text-4xl self-center text-stone-50">Select Pokemon from Gallery 👉</p>
+    <p class="capitalize m-auto font-extrabold text-4xl self-center text-stone-50 custom_text-shadow">
+      Select Pokemon from Gallery 👉
+    </p>
   {:else}
     <section class="w-[100%] p-2 border-r-8 border-red-300 flex-1 flex flex-col justify-center items-center gap-10">
       <div id="bg-sphere" class="w-[320px] aspect-square rounded-[50%]">
