@@ -58,21 +58,21 @@
         {:else if moves.length === 1}
           <h3>Move</h3>
           <ul>
-            {#each moves as move}
+            {#each moves as move (move.name)}
               <li>{(move as any)?.name.replaceAll("-", " ")}</li>
             {/each}
           </ul>
         {:else if moves.length < 4}
           <h3>{moves.length} {stat}</h3>
           <ul>
-            {#each moves as move}
+            {#each moves as move (move.name)}
               <li>{(move as any)?.name.replaceAll("-", " ")}</li>
             {/each}
           </ul>
         {:else}
           <h3>Four {stat} (random)</h3>
           <ul>
-            {#each moves as move}
+            {#each moves as move (move.name)}
               <li>{(move as any)?.name.replaceAll("-", " ")}</li>
             {/each}
           </ul>
