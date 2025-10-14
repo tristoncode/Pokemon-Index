@@ -15,7 +15,6 @@
 
 <svelte:head>
   <link href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css" rel="stylesheet" />
-  <title>Pokemon Index</title>
 </svelte:head>
 
 <main class="bg-stone-950 w-[100vw] h-[100vh] p-1 flex gap-1 overflow-hidden *:font-semibold">
