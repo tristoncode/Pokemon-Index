@@ -14,7 +14,9 @@
 
   async function oninput() {
     is_searched = true;
-    pokemonListObjs = await pkStore.group_searchbarGallery.handle_getSearchedPokemonResults(inputBox.value.toLowerCase());
+    pokemonListObjs = await pkStore.group_searchbarGallery.handle_getSearchedPokemonResults(
+      inputBox.value.replaceAll(" ", "-").toLowerCase()
+    );
   }
 </script>
 
